@@ -61,9 +61,9 @@ public class CloverRestSDK {
     public <T> T getRequestWrapped(HttpRequest request, HttpResponse.BodyHandler<T> handler) {
 
         return client.sendAsync(request, handler)
-            .thenComposeAsync(response -> tryResend(client, request, handler, response, 1))
-            .get()
-            .body();
+                     .thenComposeAsync(response -> tryResend(client, request, handler, response, 1))
+                     .get()
+                     .body();
     }
 
     @SneakyThrows
@@ -74,7 +74,7 @@ public class CloverRestSDK {
         if (resp.statusCode() == 409 && count < MAX_ATTEMPTS) {
             Thread.sleep(TIME_OUT_DURATION);
             return client.sendAsync(request, handler)
-                .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
+                         .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
         }
         return CompletableFuture.completedFuture(resp);
     }
