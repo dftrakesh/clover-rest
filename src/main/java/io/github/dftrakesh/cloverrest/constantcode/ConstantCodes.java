@@ -8,6 +8,5 @@ public class ConstantCodes {
     public static final int TIME_OUT_DURATION = 1000;
     public static final int MAX_ATTEMPTS = 50;
 
-
     public static final String ACCESS_TOKEN_END_POINT = "oauth/token";
 }
