@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZATION;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.MAX_ATTEMPTS;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.TIME_OUT_DURATION;
 
 public class CloverRestSDK {
 
@@ -69,8 +71,8 @@ public class CloverRestSDK {
                                                             HttpRequest request,
                                                             HttpResponse.BodyHandler<T> handler,
                                                             HttpResponse<T> resp, int count) {
-        if (resp.statusCode() == 409 && count < 50) {
-            Thread.sleep(3000);
+        if (resp.statusCode() == 409 && count < MAX_ATTEMPTS) {
+            Thread.sleep(TIME_OUT_DURATION);
             return client.sendAsync(request, handler)
                 .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
         }
