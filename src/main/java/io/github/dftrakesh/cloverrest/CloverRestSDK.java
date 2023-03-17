@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZATION;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.HTTP_HEADER_CONTENT_TYPE;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.HTTP_HEADER_VALUE_APPLICATION_JSON;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.MAX_ATTEMPTS;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.TIME_OUT_DURATION;
 
@@ -27,6 +29,8 @@ public class CloverRestSDK {
             this.sellingRegionEndpoint = "https://www.clover.com/";
         } else if (ConstantCodes.CLOVER_REST_REGION_EU.equalsIgnoreCase(accessCredentials.getRegion())) {
             this.sellingRegionEndpoint = "https://eu.clover.com/";
+        } else if (ConstantCodes.CLOVER_REST_REGION_LATAM.equalsIgnoreCase(accessCredentials.getRegion())) {
+            this.sellingRegionEndpoint = "https://api.la.clover.com";
         } else {
             this.sellingRegionEndpoint = null;
         }
@@ -36,6 +40,7 @@ public class CloverRestSDK {
     protected HttpRequest get(URI uri) {
         return HttpRequest.newBuilder(uri)
                           .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+                          .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
                           .GET()
                           .build();
     }
