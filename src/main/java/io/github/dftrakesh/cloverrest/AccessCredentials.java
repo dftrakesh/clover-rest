@@ -6,6 +6,6 @@ import lombok.Data;
 public class AccessCredentials {
 
     private String accessToken;
-    private String merchantsId;
+    private String merchantId;
     private String region;
 }
