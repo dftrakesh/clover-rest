@@ -30,7 +30,7 @@ public class CloverRestSDK {
         } else if (ConstantCodes.CLOVER_REST_REGION_EU.equalsIgnoreCase(accessCredentials.getRegion())) {
             this.sellingRegionEndpoint = "https://eu.clover.com/";
         } else if (ConstantCodes.CLOVER_REST_REGION_LATAM.equalsIgnoreCase(accessCredentials.getRegion())) {
-            this.sellingRegionEndpoint = "https://api.la.clover.com";
+            this.sellingRegionEndpoint = "https://api.la.clover.com/";
         } else {
             this.sellingRegionEndpoint = null;
         }
