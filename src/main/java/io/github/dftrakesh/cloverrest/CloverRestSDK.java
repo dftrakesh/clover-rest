@@ -46,6 +46,24 @@ public class CloverRestSDK {
     }
 
     @SneakyThrows
+    protected HttpRequest post(URI uri, final String jsonBody) {
+        return HttpRequest.newBuilder(uri)
+                          .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+                          .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
+                          .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
+                          .build();
+    }
+
+    @SneakyThrows
+    protected HttpRequest delete(URI uri) {
+        return HttpRequest.newBuilder(uri)
+                          .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+                          .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
+                          .DELETE()
+                          .build();
+    }
+
+    @SneakyThrows
     protected URI addParameters(URI uri, HashMap<String, String> params) {
 
         String query = uri.getQuery();
