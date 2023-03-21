@@ -1,6 +1,5 @@
 package io.github.dftrakesh.cloverrest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
 import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemElement;
 import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemResponse;
@@ -12,8 +11,6 @@ import java.util.HashMap;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_ITEMS_END_POINT;
 
 public class CloverRestItem extends CloverRestSDK {
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public CloverRestItem(AccessCredentials accessCredentials) {
         super(accessCredentials);
