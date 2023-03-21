@@ -3,7 +3,6 @@ package io.github.dftrakesh.cloverrest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
 import io.github.dftrakesh.cloverrest.model.inventoery.itemgroup.ItemGroupElement;
-import io.github.dftrakesh.cloverrest.model.inventoery.itemgroup.ItemGroupRequest;
 import io.github.dftrakesh.cloverrest.model.inventoery.itemgroup.ItemGroupResponse;
 import lombok.SneakyThrows;
 import java.net.URI;
@@ -36,35 +35,5 @@ public class CloverRestItemGroup extends CloverRestSDK {
         HttpRequest request = get(uri);
         HttpResponse.BodyHandler<ItemGroupResponse> handler = new JsonBodyHandler<>(ItemGroupResponse.class);
         return getRequestWrapped(request, handler);
-    }
-
-    @SneakyThrows
-    public ItemGroupElement createItemGroup(ItemGroupRequest itemGroupRequest) {
-        URI uri = new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_GROUP_END_POINT);
-
-        String jsonBody = objectMapper.writeValueAsString(itemGroupRequest);
-
-        HttpRequest request = post(uri, jsonBody);
-        HttpResponse.BodyHandler<ItemGroupElement> handler = new JsonBodyHandler<>(ItemGroupElement.class);
-        return getRequestWrapped(request, handler);
-    }
-
-    @SneakyThrows
-    public ItemGroupElement updateItemGroup(ItemGroupRequest itemGroupRequest, String id) {
-        URI uri = new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_GROUP_END_POINT + "/" + id);
-
-        String jsonBody = objectMapper.writeValueAsString(itemGroupRequest);
-
-        HttpRequest request = post(uri, jsonBody);
-        HttpResponse.BodyHandler<ItemGroupElement> handler = new JsonBodyHandler<>(ItemGroupElement.class);
-        return getRequestWrapped(request, handler);
-    }
-
-    @SneakyThrows
-    public void deleteItemsGroup(String id) {
-        URI uri = new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_GROUP_END_POINT + "/" + id);
-
-        HttpRequest request = delete(uri);
-        getRequestWrapped(request, HttpResponse.BodyHandlers.ofString());
     }
 }

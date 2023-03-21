@@ -14,4 +14,7 @@ public class ConstantCodes {
     public static final String ACCESS_TOKEN_END_POINT = "oauth/token";
     public static final String V3_ITEMS_GROUP_END_POINT = "/item_groups";
     public static final String V3_ITEMS_ATTRIBUTE_END_POINT = "/attributes";
+    public static final String V3_ITEMS_END_POINT = "/items";
+    public static final String V3_ITEMS_OPTION_END_POINT = "/options";
+    public static final String V3_ITEMS_CATEGORY_END_POINT = "/categories";
 }
