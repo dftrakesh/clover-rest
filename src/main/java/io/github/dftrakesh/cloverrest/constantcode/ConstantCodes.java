@@ -2,8 +2,6 @@ package io.github.dftrakesh.cloverrest.constantcode;
 
 public class ConstantCodes {
 
-    public static final String V3_ITEMS_END_POINT = "/items";
-    public static final String V3_ITEMS_OPTION_END_POINT = "/options";
     public static final String CLOVER_REST_REGION_US_AND_CANADA = "US & Canada";
     public static final String CLOVER_REST_REGION_EU = "EU";
     public static final String CLOVER_REST_REGION_LATAM = "LATAM";
