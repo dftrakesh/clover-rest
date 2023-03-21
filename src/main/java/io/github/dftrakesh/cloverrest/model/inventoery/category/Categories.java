@@ -6,8 +6,7 @@ import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CategoryResponse {
+public class Categories {
 
     private List<CategoryElement> elements;
-    private String href;
 }

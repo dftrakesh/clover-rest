@@ -1,13 +1,12 @@
 package io.github.dftrakesh.cloverrest.model.inventoery.option;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import java.util.List;
 
 @Data
-public class OptionResponse {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Options {
 
     private List<OptionElement> elements;
-    private String href;
-    private String details;
-    private String message;
 }

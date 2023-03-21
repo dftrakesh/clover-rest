@@ -1,7 +1,6 @@
-package io.github.dftrakesh.cloverrest.model.inventoery.itemgroup;
+package io.github.dftrakesh.cloverrest.model.inventoery.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemElement;
 import lombok.Data;
 import java.util.List;
 
@@ -9,5 +8,5 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Items {
 
-    private List<ItemElement> elements;
+    private List<Item> elements;
 }

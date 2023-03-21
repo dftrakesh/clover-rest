@@ -2,6 +2,7 @@ package io.github.dftrakesh.cloverrest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
+import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemElement;
 import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemResponse;
 import lombok.SneakyThrows;
 import java.net.URI;
@@ -19,7 +20,7 @@ public class CloverRestItem extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public ItemResponse getItems(HashMap<String, String> param) {
+    public ItemResponse getAllItem(HashMap<String, String> param) {
         URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_END_POINT), param);
 
         HttpRequest request = get(uri);
@@ -28,11 +29,11 @@ public class CloverRestItem extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public ItemResponse getAllItems(HashMap<String, String> param, String itemId) {
+    public ItemElement getItems(HashMap<String, String> param, String itemId) {
         URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_END_POINT + "/" + itemId), param);
 
         HttpRequest request = get(uri);
-        HttpResponse.BodyHandler<ItemResponse> handler = new JsonBodyHandler<>(ItemResponse.class);
+        HttpResponse.BodyHandler<ItemElement> handler = new JsonBodyHandler<>(ItemElement.class);
         return getRequestWrapped(request, handler);
     }
 }

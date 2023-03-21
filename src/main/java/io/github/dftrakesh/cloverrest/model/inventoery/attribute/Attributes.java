@@ -6,10 +6,7 @@ import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AttributeResponse {
+public class Attributes {
 
     private List<AttributeElement> elements;
-    private String href;
-    private String details;
-    private String message;
 }
