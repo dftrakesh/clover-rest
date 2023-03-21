@@ -29,7 +29,7 @@ public class CloverRestItem extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public ItemElement getItems(HashMap<String, String> param, String itemId) {
+    public ItemElement getItem(HashMap<String, String> param, String itemId) {
         URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_END_POINT + "/" + itemId), param);
 
         HttpRequest request = get(uri);

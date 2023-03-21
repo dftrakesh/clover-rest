@@ -20,7 +20,7 @@ public class CloverRestItemGroup extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public ItemGroupElement getItemsGroup(HashMap<String, String> param, String id) {
+    public ItemGroupElement getItemGroup(HashMap<String, String> param, String id) {
         URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_GROUP_END_POINT + "/" + id), param);
 
         HttpRequest request = get(uri);
@@ -29,7 +29,7 @@ public class CloverRestItemGroup extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public ItemGroupResponse getAllItemsGroup(HashMap<String, String> param) {
+    public ItemGroupResponse getAllItemGroup(HashMap<String, String> param) {
         URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_GROUP_END_POINT), param);
 
         HttpRequest request = get(uri);
