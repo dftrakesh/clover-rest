@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZATION;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZE_END_POINT;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.HTTP_HEADER_CONTENT_TYPE;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.HTTP_HEADER_VALUE_APPLICATION_JSON;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.MAX_ATTEMPTS;
@@ -34,6 +35,10 @@ public class CloverRestSDK {
         } else {
             this.sellingRegionEndpoint = null;
         }
+    }
+
+    public String getRedirectURL(String clientId) {
+        return sellingRegionEndpoint + AUTHORIZE_END_POINT + clientId;
     }
 
     @SneakyThrows
