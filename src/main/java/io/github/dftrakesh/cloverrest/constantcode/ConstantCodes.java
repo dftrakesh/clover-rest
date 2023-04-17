@@ -12,7 +12,7 @@ public class ConstantCodes {
     public static final int MAX_ATTEMPTS = 50;
 
     public static final String ACCESS_TOKEN_END_POINT = "oauth/token";
-    public static final String AUTHORIZE_END_POINT = "/oauth/authorize?client_id=";
+    public static final String AUTHORIZE_END_POINT = "oauth/authorize?client_id=";
     public static final String V3_ITEMS_GROUP_END_POINT = "/item_groups";
     public static final String V3_ITEMS_ATTRIBUTE_END_POINT = "/attributes";
     public static final String V3_ITEMS_END_POINT = "/items";
