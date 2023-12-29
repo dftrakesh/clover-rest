@@ -14,7 +14,7 @@ public class OrderElement {
     private Boolean taxRemoved;
     private Boolean isVat;
     private String state;
-    private Double createdTime;
+    private Long createdTime;
     private Double modifiedTime;
     private ListOrderLineItems lineItems;
 }
