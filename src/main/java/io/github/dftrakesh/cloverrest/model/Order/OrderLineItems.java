@@ -11,7 +11,7 @@ public class OrderLineItems {
     private String name;
     private Double price;
     private Boolean printed;
-    private Double createdTime;
+    private Long createdTime;
     private Boolean exchanged;
     private Boolean refunded;
     private Boolean isRevenue;
