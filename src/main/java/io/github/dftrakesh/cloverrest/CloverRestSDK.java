@@ -2,7 +2,6 @@ package io.github.dftrakesh.cloverrest;
 
 import io.github.dftrakesh.cloverrest.constantcode.ConstantCodes;
 import lombok.SneakyThrows;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -10,7 +9,6 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZATION;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZE_END_POINT;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.HTTP_HEADER_CONTENT_TYPE;
