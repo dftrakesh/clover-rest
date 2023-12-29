@@ -15,6 +15,6 @@ public class OrderElement {
     private Boolean isVat;
     private String state;
     private Long createdTime;
-    private Double modifiedTime;
+    private Long modifiedTime;
     private ListOrderLineItems lineItems;
 }
