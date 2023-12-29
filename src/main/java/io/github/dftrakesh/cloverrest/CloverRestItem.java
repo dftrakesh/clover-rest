@@ -8,7 +8,6 @@ import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
-
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_ITEMS_END_POINT;
 
 public class CloverRestItem extends CloverRestSDK {

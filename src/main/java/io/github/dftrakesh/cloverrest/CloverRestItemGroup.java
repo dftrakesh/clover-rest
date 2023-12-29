@@ -4,12 +4,10 @@ import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
 import io.github.dftrakesh.cloverrest.model.inventoery.itemgroup.ItemGroupElement;
 import io.github.dftrakesh.cloverrest.model.inventoery.itemgroup.ItemGroupResponse;
 import lombok.SneakyThrows;
-
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
-
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_ITEMS_GROUP_END_POINT;
 
 public class CloverRestItemGroup extends CloverRestSDK {
