@@ -33,4 +33,6 @@ public class CloverRestItem extends CloverRestSDK {
         HttpResponse.BodyHandler<ItemElement> handler = new JsonBodyHandler<>(ItemElement.class);
         return getRequestWrapped(request, handler);
     }
+
+
 }
