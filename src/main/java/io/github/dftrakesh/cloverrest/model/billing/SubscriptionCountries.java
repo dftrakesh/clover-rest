@@ -7,6 +7,5 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionCountries {
-
-    private List<Element> elements;
+ private List<Element> elements;
 }
