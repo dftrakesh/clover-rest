@@ -44,10 +44,10 @@ public class CloverRestSDK {
     @SneakyThrows
     protected HttpRequest get(URI uri) {
         return HttpRequest.newBuilder(uri)
-            .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
-            .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
-            .GET()
-            .build();
+                          .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+                          .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
+                          .GET()
+                          .build();
     }
 
     @SneakyThrows
@@ -71,17 +71,20 @@ public class CloverRestSDK {
     public <T> T getRequestWrapped(HttpRequest request, HttpResponse.BodyHandler<T> handler) {
 
         return client.sendAsync(request, handler)
-            .thenComposeAsync(response -> tryResend(client, request, handler, response, 1))
-            .get()
-            .body();
+                     .thenComposeAsync(response -> tryResend(client, request, handler, response, 1))
+                     .get()
+                     .body();
     }
 
     @SneakyThrows
-    public <T> CompletableFuture<HttpResponse<T>> tryResend(HttpClient client, HttpRequest request, HttpResponse.BodyHandler<T> handler, HttpResponse<T> resp, int count) {
+    public <T> CompletableFuture<HttpResponse<T>> tryResend(HttpClient client,
+                                                            HttpRequest request,
+                                                            HttpResponse.BodyHandler<T> handler,
+                                                            HttpResponse<T> resp, int count) {
         if (resp.statusCode() == 409 && count < MAX_ATTEMPTS) {
             Thread.sleep(TIME_OUT_DURATION);
             return client.sendAsync(request, handler)
-                .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
+                         .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
         }
         return CompletableFuture.completedFuture(resp);
     }
