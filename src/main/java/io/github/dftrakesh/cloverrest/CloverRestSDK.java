@@ -44,10 +44,10 @@ public class CloverRestSDK {
     @SneakyThrows
     protected HttpRequest get(URI uri) {
         return HttpRequest.newBuilder(uri)
-            .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
-            .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
-            .GET()
-            .build();
+        .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+        .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
+        .GET()
+        .build();
     }
 
     @SneakyThrows
