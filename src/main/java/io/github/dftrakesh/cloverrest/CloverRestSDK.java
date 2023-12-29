@@ -2,6 +2,7 @@ package io.github.dftrakesh.cloverrest;
 
 import io.github.dftrakesh.cloverrest.constantcode.ConstantCodes;
 import lombok.SneakyThrows;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -9,6 +10,7 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZATION;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.AUTHORIZE_END_POINT;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.HTTP_HEADER_CONTENT_TYPE;
@@ -32,10 +34,7 @@ public class CloverRestSDK {
             this.sellingRegionEndpoint = "https://eu.clover.com/";
         } else if (ConstantCodes.CLOVER_REST_REGION_LATAM.equalsIgnoreCase(accessCredentials.getRegion())) {
             this.sellingRegionEndpoint = "https://api.la.clover.com/";
-        }else if (ConstantCodes.CLOVER_REST_REGION_US.equalsIgnoreCase(accessCredentials.getRegion())) {
-            this.sellingRegionEndpoint = "https://sandbox.dev.clover.com/";
-        }
-        else {
+        } else {
             this.sellingRegionEndpoint = null;
         }
     }
@@ -47,10 +46,10 @@ public class CloverRestSDK {
     @SneakyThrows
     protected HttpRequest get(URI uri) {
         return HttpRequest.newBuilder(uri)
-                          .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
-                          .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
-                          .GET()
-                          .build();
+            .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+            .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
+            .GET()
+            .build();
     }
 
     @SneakyThrows
@@ -74,9 +73,9 @@ public class CloverRestSDK {
     public <T> T getRequestWrapped(HttpRequest request, HttpResponse.BodyHandler<T> handler) {
 
         return client.sendAsync(request, handler)
-                     .thenComposeAsync(response -> tryResend(client, request, handler, response, 1))
-                     .get()
-                     .body();
+            .thenComposeAsync(response -> tryResend(client, request, handler, response, 1))
+            .get()
+            .body();
     }
 
     @SneakyThrows
@@ -87,7 +86,7 @@ public class CloverRestSDK {
         if (resp.statusCode() == 409 && count < MAX_ATTEMPTS) {
             Thread.sleep(TIME_OUT_DURATION);
             return client.sendAsync(request, handler)
-                         .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
+                .thenComposeAsync(response -> tryResend(client, request, handler, response, count + 1));
         }
         return CompletableFuture.completedFuture(resp);
     }

@@ -15,7 +15,4 @@ public class OrderLineItems {
     private Boolean exchanged;
     private Boolean refunded;
     private Boolean isRevenue;
-
-
-
 }

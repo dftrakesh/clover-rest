@@ -17,6 +17,4 @@ public class OrderElement {
     private Double createdTime;
     private Double modifiedTime;
     private ListOrderLineItems lineItems;
-
-
 }
