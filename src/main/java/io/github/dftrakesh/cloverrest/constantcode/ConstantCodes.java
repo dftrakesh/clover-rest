@@ -10,6 +10,7 @@ public class ConstantCodes {
     public static final String HTTP_HEADER_VALUE_APPLICATION_JSON = "application/json";
     public static final int TIME_OUT_DURATION = 1000;
     public static final int MAX_ATTEMPTS = 50;
+
     public static final String ACCESS_TOKEN_END_POINT = "oauth/token";
     public static final String AUTHORIZE_END_POINT = "oauth/authorize?client_id=";
     public static final String V3_ITEMS_GROUP_END_POINT = "/item_groups";
