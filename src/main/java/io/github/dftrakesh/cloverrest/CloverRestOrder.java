@@ -30,8 +30,8 @@ public class CloverRestOrder extends CloverRestSDK {
 
     @SneakyThrows
     public OrderElement getOrder(HashMap<String, String> params, String orderId) {
-        String s_uri = sellingRegionEndpoint + V3_MERCHANTS + accessCredentials.getMerchantId() + V3_ORDER_END_POINT + "/" + orderId;
-        URI uri = addParameters(new URI(s_uri), params);
+        String sUri = sellingRegionEndpoint + V3_MERCHANTS + accessCredentials.getMerchantId() + V3_ORDER_END_POINT + "/" + orderId;
+        URI uri = addParameters(new URI(sUri), params);
 
         HttpRequest request = get(uri);
         HttpResponse.BodyHandler<OrderElement> handler = new JsonBodyHandler<>(OrderElement.class);
