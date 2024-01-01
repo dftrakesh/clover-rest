@@ -10,7 +10,10 @@ public class OrderLineItems {
     private String id;
     private String name;
     private Double price;
+    private Integer unitQty;
+    private String unitName;
     private Boolean printed;
+    private Long orderClientCreatedTime;
     private Long createdTime;
     private Boolean exchanged;
     private Boolean refunded;
