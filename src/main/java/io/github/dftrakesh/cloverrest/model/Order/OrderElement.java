@@ -16,5 +16,5 @@ public class OrderElement {
     private String state;
     private Long createdTime;
     private Long modifiedTime;
-    private ListOrderLineItems lineItems;
+    private OrderLineItems orderLineItems;
 }

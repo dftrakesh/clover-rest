@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderElements {
-    private List<OrderElement> elements;
+    private List<OrderElement> orderElementList;
 }

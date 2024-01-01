@@ -9,6 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_MERCHANTS;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_ORDER_END_POINT;
 
 public class CloverRestOrder extends CloverRestSDK {
@@ -18,8 +19,9 @@ public class CloverRestOrder extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public OrderResponse getAllOrdersWithLineItems(HashMap<String, String> params) {
-        URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ORDER_END_POINT), params);
+    public OrderResponse getOrders(HashMap<String, String> params) {
+        String sUri = sellingRegionEndpoint + V3_MERCHANTS + accessCredentials.getMerchantId() + V3_ORDER_END_POINT;
+        URI uri = addParameters(new URI(sUri), params);
 
         HttpRequest request = get(uri);
         HttpResponse.BodyHandler<OrderResponse> handler = new JsonBodyHandler<>(OrderResponse.class);
@@ -27,8 +29,9 @@ public class CloverRestOrder extends CloverRestSDK {
     }
 
     @SneakyThrows
-    public OrderElement getOrderWithLineItems(HashMap<String, String> params, String orderId) {
-        URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ORDER_END_POINT + "/" + orderId), params);
+    public OrderElement getOrder(HashMap<String, String> params, String orderId) {
+        String s_uri = sellingRegionEndpoint + V3_MERCHANTS + accessCredentials.getMerchantId() + V3_ORDER_END_POINT + "/" + orderId;
+        URI uri = addParameters(new URI(s_uri), params);
 
         HttpRequest request = get(uri);
         HttpResponse.BodyHandler<OrderElement> handler = new JsonBodyHandler<>(OrderElement.class);
