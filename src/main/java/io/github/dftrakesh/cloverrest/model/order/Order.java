@@ -1,4 +1,4 @@
-package io.github.dftrakesh.cloverrest.model.Order;
+package io.github.dftrakesh.cloverrest.model.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

@@ -1,8 +1,8 @@
 package io.github.dftrakesh.cloverrest;
 
 import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
-import io.github.dftrakesh.cloverrest.model.Order.Order;
-import io.github.dftrakesh.cloverrest.model.Order.Orders;
+import io.github.dftrakesh.cloverrest.model.order.Order;
+import io.github.dftrakesh.cloverrest.model.order.Orders;
 import lombok.SneakyThrows;
 import java.net.URI;
 import java.net.http.HttpRequest;
