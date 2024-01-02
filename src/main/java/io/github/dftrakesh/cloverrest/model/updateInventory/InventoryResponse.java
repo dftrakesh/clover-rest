@@ -1,11 +1,14 @@
 package io.github.dftrakesh.cloverrest.model.updateInventory;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.dftrakesh.cloverrest.model.order.Item;
 import lombok.Data;
-import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Item {
-    private String id;
+public class InventoryResponse {
+
+    private Item item;
+    private Integer stockCount;
+    private Double quantity;
 }

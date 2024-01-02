@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class updateRequest {
-    /*private String id;*/
+public class InventoryRequest {
     private Integer quantity;
 }

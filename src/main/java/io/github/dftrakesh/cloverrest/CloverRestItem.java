@@ -3,12 +3,16 @@ package io.github.dftrakesh.cloverrest;
 import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
 import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemElement;
 import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemResponse;
+import io.github.dftrakesh.cloverrest.model.updateInventory.InventoryRequest;
+import io.github.dftrakesh.cloverrest.model.updateInventory.InventoryResponse;
 import lombok.SneakyThrows;
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_ITEMS_END_POINT;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_ITEM_STOCKS_ENDPOINT;
+import static io.github.dftrakesh.cloverrest.constantcode.ConstantCodes.V3_MERCHANTS;
 
 public class CloverRestItem extends CloverRestSDK {
 
@@ -32,5 +36,15 @@ public class CloverRestItem extends CloverRestSDK {
         HttpRequest request = get(uri);
         HttpResponse.BodyHandler<ItemElement> handler = new JsonBodyHandler<>(ItemElement.class);
         return getRequestWrapped(request, handler);
+    }
+
+    @SneakyThrows
+    public InventoryResponse updateInventory(InventoryRequest inventoryRequest , String itemId ) {
+        String sUri = sellingRegionEndpoint + V3_MERCHANTS + accessCredentials.getMerchantId() + V3_ITEM_STOCKS_ENDPOINT + "/" + itemId;
+        URI uri = new URI(sUri);
+
+        HttpRequest request = post(uri,inventoryRequest);
+        HttpResponse.BodyHandler<InventoryResponse> handler = new JsonBodyHandler<>(InventoryResponse.class);
+        return getRequestWrapped(request,handler);
     }
 }
