@@ -18,4 +18,6 @@ public class ConstantCodes {
     public static final String V3_ITEMS_END_POINT = "/items";
     public static final String V3_ITEMS_OPTION_END_POINT = "/options";
     public static final String V3_ITEMS_CATEGORY_END_POINT = "/categories";
+    public static final String V3_ORDER_END_POINT = "/orders";
+    public static final String V3_MERCHANTS = "v3/merchants/";
 }
