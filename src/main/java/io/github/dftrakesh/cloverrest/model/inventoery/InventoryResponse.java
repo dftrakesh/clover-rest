@@ -1,4 +1,4 @@
-package io.github.dftrakesh.cloverrest.model.updateInventory;
+package io.github.dftrakesh.cloverrest.model.inventoery;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.github.dftrakesh.cloverrest.model.order.Item;

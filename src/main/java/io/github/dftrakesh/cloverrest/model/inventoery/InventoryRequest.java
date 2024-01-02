@@ -1,4 +1,4 @@
-package io.github.dftrakesh.cloverrest.model.updateInventory;
+package io.github.dftrakesh.cloverrest.model.inventoery;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
