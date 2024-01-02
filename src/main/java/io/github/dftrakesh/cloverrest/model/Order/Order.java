@@ -5,16 +5,22 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OrderElement {
+public class Order {
 
-    private String id;
     private String href;
+    private String id;
     private String currency;
+    private Employee employee;
+    private Integer total;
     private String paymentState;
     private Boolean taxRemoved;
     private Boolean isVat;
     private String state;
+    private Boolean manualTransaction;
+    private Boolean groupLineItems;
+    private Boolean testMode;
     private Long createdTime;
+    private Long clientCreatedTime;
     private Long modifiedTime;
-    private OrderLineItems orderLineItems;
+    private LineItems lineItems;
 }
