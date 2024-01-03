@@ -1,10 +1,10 @@
 package io.github.dftrakesh.cloverrest;
 
 import io.github.dftrakesh.cloverrest.handler.JsonBodyHandler;
-import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemElement;
-import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemResponse;
 import io.github.dftrakesh.cloverrest.model.inventoery.InventoryRequest;
 import io.github.dftrakesh.cloverrest.model.inventoery.InventoryResponse;
+import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemElement;
+import io.github.dftrakesh.cloverrest.model.inventoery.item.ItemResponse;
 import lombok.SneakyThrows;
 import java.net.URI;
 import java.net.http.HttpRequest;
@@ -28,7 +28,6 @@ public class CloverRestItem extends CloverRestSDK {
         HttpResponse.BodyHandler<ItemResponse> handler = new JsonBodyHandler<>(ItemResponse.class);
         return getRequestWrapped(request, handler);
     }
-
     @SneakyThrows
     public ItemElement getItem(HashMap<String, String> param, String itemId) {
         URI uri = addParameters(new URI(sellingRegionEndpoint + "v3/merchants/" + accessCredentials.getMerchantId() + V3_ITEMS_END_POINT + "/" + itemId), param);
@@ -37,14 +36,13 @@ public class CloverRestItem extends CloverRestSDK {
         HttpResponse.BodyHandler<ItemElement> handler = new JsonBodyHandler<>(ItemElement.class);
         return getRequestWrapped(request, handler);
     }
-
     @SneakyThrows
-    public InventoryResponse updateInventory(InventoryRequest inventoryRequest , String itemId ) {
+    public InventoryResponse updateInventory(InventoryRequest inventoryRequest, String itemId) {
         String sUri = sellingRegionEndpoint + V3_MERCHANTS + accessCredentials.getMerchantId() + V3_ITEM_STOCKS_ENDPOINT + "/" + itemId;
         URI uri = new URI(sUri);
 
-        HttpRequest request = post(uri,inventoryRequest);
+        HttpRequest request = post(uri, inventoryRequest);
         HttpResponse.BodyHandler<InventoryResponse> handler = new JsonBodyHandler<>(InventoryResponse.class);
-        return getRequestWrapped(request,handler);
+        return getRequestWrapped(request, handler);
     }
 }

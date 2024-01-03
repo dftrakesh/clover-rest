@@ -57,7 +57,7 @@ public class CloverRestSDK {
     protected HttpRequest post(URI uri, final Object object) {
         String jsonBody = objectMapper.writeValueAsString(object);
         return HttpRequest.newBuilder(uri)
-            .header(AUTHORIZATION, "Bearer " + this.accessCredentials.getAccessToken())
+            .header(AUTHORIZATION, "Bearer " + accessCredentials.getAccessToken())
             .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
             .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
             .build();
