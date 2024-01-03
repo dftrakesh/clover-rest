@@ -1,5 +1,6 @@
 package io.github.dftrakesh.cloverrest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.dftrakesh.cloverrest.constantcode.ConstantCodes;
 import lombok.SneakyThrows;
 import java.net.URI;
@@ -21,10 +22,12 @@ public class CloverRestSDK {
     protected HttpClient client;
     protected AccessCredentials accessCredentials;
     protected String sellingRegionEndpoint;
+    protected final ObjectMapper objectMapper;
 
     public CloverRestSDK(AccessCredentials accessCredentials) {
         client = HttpClient.newHttpClient();
         this.accessCredentials = accessCredentials;
+        this.objectMapper = new ObjectMapper();
 
         if (ConstantCodes.CLOVER_REST_REGION_US_AND_CANADA.equalsIgnoreCase(accessCredentials.getRegion())) {
             this.sellingRegionEndpoint = "https://www.clover.com/";
@@ -48,6 +51,16 @@ public class CloverRestSDK {
                           .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
                           .GET()
                           .build();
+    }
+
+    @SneakyThrows
+    protected HttpRequest post(URI uri, final Object object) {
+        String jsonBody = objectMapper.writeValueAsString(object);
+        return HttpRequest.newBuilder(uri)
+            .header(AUTHORIZATION, "Bearer " + accessCredentials.getAccessToken())
+            .header(HTTP_HEADER_CONTENT_TYPE, HTTP_HEADER_VALUE_APPLICATION_JSON)
+            .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
+            .build();
     }
 
     @SneakyThrows
